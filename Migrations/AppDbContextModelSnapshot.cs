@@ -50,7 +50,7 @@ namespace BookShop.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("FirstName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnName("BookName")
                         .HasColumnType("nvarchar(100)")
@@ -95,7 +95,7 @@ namespace BookShop.Migrations
             modelBuilder.Entity("BookShop.DataAccess.Author", b =>
                 {
                     b.HasOne("BookShop.DataAccess.Book", null)
-                        .WithMany("Orders")
+                        .WithMany("Authors")
                         .HasForeignKey("BookID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

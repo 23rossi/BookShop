@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201002073857_MyBookShopMigration")]
+    [Migration("20201002081433_MyBookShopMigration")]
     partial class MyBookShopMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,7 +52,7 @@ namespace BookShop.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("FirstName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnName("BookName")
                         .HasColumnType("nvarchar(100)")
@@ -97,7 +97,7 @@ namespace BookShop.Migrations
             modelBuilder.Entity("BookShop.DataAccess.Author", b =>
                 {
                     b.HasOne("BookShop.DataAccess.Book", null)
-                        .WithMany("Orders")
+                        .WithMany("Authors")
                         .HasForeignKey("BookID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
