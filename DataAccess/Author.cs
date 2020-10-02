@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookShop.DataAccess
 {
+    // model of Authors mapped into DB
     public class Author
     {
         [Column("AuthorID")]

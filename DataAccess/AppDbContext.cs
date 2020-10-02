@@ -8,6 +8,8 @@ namespace BookShop.DataAccess
 {
     public class AppDbContext : DbContext
     {
+
+        // crating DB context with 3 data sets
         public AppDbContext(DbContextOptions
     <AppDbContext> options) : base(options)
         {

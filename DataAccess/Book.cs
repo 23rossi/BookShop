@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookShop.DataAccess
 {
+    // model of Books mapped into DB
     public class Book
     {
         [Column("BookID")]
@@ -20,7 +21,7 @@ namespace BookShop.DataAccess
         [StringLength(100)]
         public string FirstName { get; set; }
 
-        [ForeignKey("AuthorID")]
+        [ForeignKey("BookID")]
         public virtual List<Author> Orders { get; set; }
     }
 }
