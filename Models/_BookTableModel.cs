@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using BookShop.DataAccess;
 using System.Linq;
+using System.Data;
 
 namespace BookShop.Models
 {
@@ -12,10 +13,12 @@ namespace BookShop.Models
         public _BookTableModel(BookShop.DataAccess.AppDbContext DB)
         {
             db = DB;
+            //init data
+            GetTableData();
         }
 
         //Get book on query base on form query
-        public void GetTableData(Query bookQuery)
+        public void GetTableData(Query bookQuery = null)
         {
             Book = (from author in db.Authors join book in db.Books on author.AuthorID equals book.AuthorID select new Query() { BookName = book.Name, AuthorName = author.Name, QueryText = null }).ToList();
             if (bookQuery?.BookName?.Count() > 0)
