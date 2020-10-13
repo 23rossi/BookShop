@@ -4,4 +4,6 @@
     ViewData["Title"] = "Home page";
 }
 <partial name="~/Pages/Shared/_BookForm.cshtml" for="_query" />
+@*show status from DB on request form*@
+<p class="text-warning">@Model._bookTableModel.BookStatus</p>
 <partial name="~/Pages/Shared/_BookTable.cshtml" for="_bookTableModel" />
