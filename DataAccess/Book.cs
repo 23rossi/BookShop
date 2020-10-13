@@ -21,7 +21,7 @@ namespace BookShop.DataAccess
         [StringLength(100)]
         public string Name { get; set; }
 
-        [ForeignKey("BookID")]
-        public virtual List<Author> Authors { get; set; }
+        [Column("AuthorID")]
+        public int AuthorID { get; set; }
     }
 }

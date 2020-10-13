@@ -23,7 +23,7 @@ namespace BookShop.Pages
 
         public async Task OnGetAsync()
         {
-            var listBook = await (from book in db.Books join author in db.Authors on book.BookID equals author.BookID select new { Book = book.Name, Author = author.Name }).ToListAsync();
+            //var listBook = await (from book in db.Books join author in db.Authors on book.BookID equals author.BookID select new { Book = book.Name, Author = author.Name }).ToListAsync();
         }
     }
 }

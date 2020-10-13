@@ -22,6 +22,7 @@ namespace BookShop.DataAccess
         public String Name { get; set; }
 
         [Required]
-        public int BookID { get; set; }
+        [ForeignKey("AuthorID")]
+        public virtual List<Book> BookIDs { get; set; }
     }
 }
