@@ -53,6 +53,7 @@ namespace BookShop
 
             app.UseAuthorization();
 
+            // using razor pages routing 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
