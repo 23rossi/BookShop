@@ -1,6 +1,7 @@
 ﻿using System;
 using BookShop.DataAccess;
 using BookShop.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
@@ -26,10 +27,26 @@ namespace BookShop.Pages
             }
 
         }
-
-        public void OnGet()
+        //Page handler for Form submit catch inputs values into Query model
+        public IActionResult OnPostForm([FromForm(Name = "_query")] Query bookQuery = null)
         {
-
+            try
+            {
+                //fill inputs on postback Page
+                _query = bookQuery;
+                if (!ModelState.IsValid)
+                {                    
+                    _bookTableModel.BookStatus = "Form is not correctly filled!";                    
+                    return Page();
+                }                
+                _bookTableModel.GetTableData(_query);
+                return Page();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.InnerException.ToString());
+                return Page();
+            }
         }
     }
 }
