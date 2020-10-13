@@ -8,7 +8,7 @@ namespace BookShop.Models
     public class _BookTableModel
     {
         //list of books
-        public IList<Query> Book { get; set; }
+        public IList<Query> Book { get; set; }        
         private BookShop.DataAccess.AppDbContext db;
         public _BookTableModel(BookShop.DataAccess.AppDbContext DB)
         {
